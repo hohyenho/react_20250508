@@ -1,29 +1,25 @@
 import React, { useState } from 'react'
 
-const header_Nav = [
+const headerNav=[
     {
         title:"intro",
-        url:"#intro",
+        url : "#intro",
     },
     {
         title:"skill",
-        url:"#skill",
+        url : "#skill",
     },
     {
         title:"site",
-        url:"#site",
+        url : "#site",
     },
     {
         title:"portfolio",
-        url:"#port",
+        url : "#port",
     },
     {
         title:"contact",
-        url:"#contact",
-    },
-    {
-        title:"more",
-        url:"#more",
+        url : "#contact",
     },
 ]
 
@@ -31,16 +27,10 @@ const Header = () => {
 
     const [show, setShow] = useState(false);
 
-    const toggleMenu =() => {
-        setShow((pshow) => !pshow);
+    const toggleMenu =()=>{
+        setShow((pShow) => !pShow);
     }
 
-
-
-
-    //useState() : 훅 명령어 하나로 상태를 관리하는 명령어로 상태가 변경이 되면 스스로 업데이트를 해주는 명령어입니다.
-    //show : 현재값
-    //setShow : 상태를 업그레이한 상태값
 
     return (
         <header id='header' role='banner'>
@@ -50,24 +40,18 @@ const Header = () => {
                         portfolio <em>react</em>
                     </a>
                 </div>
-
-
-<nav className={`header_nav ${show ? "show":""}`} role='navigation' aria-label='메인메뉴'>
-                
-                
+                <div className={`header_nav ${show ? "show":""}`} role='navigation' aria-label='800이상 메뉴'>
                     <ul>
-                        {header_Nav.map((nav,key)=>(
-                            <li key={key}>
-                                <a href={nav.url}>{nav.title}</a>
-                            </li>
-                        ))}                        
+                        {headerNav.map((nav,key)=>(
+                            <li key={key}><a href={nav.url}>{nav.title}</a></li>
+                        ))}
+
+                        
                     </ul>
-                </nav>
-                <div 
-                    className="header_nav_mobile"
+                </div>
+                <div className="header_nav_mob"
                     id='headerToggle'
-                    aria-controls='햄버거메뉴'
-                    aria-expanded={show ? "true" : "false"}
+                    aria-expanded={show ? "true": "false"}
                     role='button'
                     tabIndex="0"
                     onClick={toggleMenu}
